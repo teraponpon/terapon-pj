@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール | 田中 聡 (Satoshi Tanaka)</title>
+    <style>
+        :root {
+            --bg-color: #FFFFFF;
+            --primary-text-color: #333333;
+            --secondary-text-color: #555555;
+            --accent-color: #F0F0F0;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, p {
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            color: var(--primary-text-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 60vh;
+            padding: 4rem 2rem;
+        }
+
+        .hero__image-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .hero__name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero__tagline {
+            font-size: 1.1rem;
+            color: var(--secondary-text-color);
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- About Section --- */
+        #about p {
+            max-width: 720px;
+        }
+        #about p:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Skills Section --- */
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills__item {
+            background-color: var(--accent-color);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* --- Works Section --- */
+        .works__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .work-card__image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: var(--accent-color);
+        }
+
+        .work-card__content {
+            padding: 1.5rem;
+        }
+
+        .work-card__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card__description {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+
+        /* --- Footer / Contact --- */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #333333;
+            color: var(--accent-color);
+        }
+        
+        .links__list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links__item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .links__item a:hover {
+            text-decoration: underline;
+        }
+
+        .footer__copyright {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding: 3rem 1.5rem;
+            }
+            section, footer {
+                padding: 3rem 0;
+            }
+            .hero {
+                min-height: auto;
+                padding: 3rem 1.5rem;
+            }
+            .hero__name {
+                font-size: 2rem;
+            }
+            .hero__image-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .works__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero__image-placeholder"></div>
+        <h1 class="hero__name">田中 聡</h1>
+        <p class="hero__tagline">構造と論理の探求者 | デジタルアーキテクト</p>
+    </header>
+
+    <div class="container">
+        <main>
+            <section id="about">
+                <h2>About</h2>
+                <p>これはダミーテキストです。デザインの雰囲気を確かめるために配置されています。ここに、自己紹介や経歴を記述します。ミニマリズムの原則に基づき、情報の伝達は明確かつ簡潔であることが求められます。</p>
+                <p>知的好奇心は、常に新しい構造やシステムの理解へと私を駆り立てます。複雑な問題を単純な要素に分解し、再構築するプロセスに美しさを見出します。この文章はあくまで仮のものです。</p>
+            </section>
+
+            <section id="skills">
+                <h2>Skills / Expertise</h2>
+                <ul class="skills__grid">
+                    <li class="skills__item">システム設計</li>
+                    <li class="skills__item">データ分析基盤</li>
+                    <li class="skills__item">フロントエンド技術</li>
+                    <li class="skills__item">クラウドアーキテクチャ</li>
+                    <li class="skills__item">プロジェクト管理</li>
+                    <li class="skills__item">UI/UXデザイン原則</li>
+                </ul>
+            </section>
+
+            <section id="works">
+                <h2>Works / Projects</h2>
+                <div class="works__grid">
+                    <div class="work-card">
+                        <div class="work-card__image-placeholder"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">プロジェクト・アルファ</h3>
+                            <p class="work-card__description">これはダミーの文章です。このプロジェクトは、大規模なデータセットを処理するための分散コンピューティング基盤の設計と実装に関わりました。</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-card__image-placeholder"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">プロジェクト・ベータ</h3>
+                            <p class="work-card__description">この文章は仮のものです。ここでは、ユーザー中心設計に基づいたB2B向けSaaSのUI/UXリニューアルを担当しました。</p>
+                        </div>
+                    </div>
+                     <div class="work-card">
+                        <div class="work-card__image-placeholder"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">プロジェクト・ガンマ</h3>
+                            <p class="work-card__description">テキストはダミーです。ここでは、インタラクティブなデータ可視化を実現するWebアプリケーションを開発しました。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Links / Contact</h2>
+            <ul class="links__list">
+                <li class="links__item"><a href="#">Email</a></li>
+                <li class="links__item"><a href="#">GitHub</a></li>
+                <li class="links__item"><a href="#">LinkedIn</a></li>
+                <li class="links__item"><a href="#">X (Twitter)</a></li>
+            </ul>
+            <p class="footer__copyright">&copy; 2025 Satoshi Tanaka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
