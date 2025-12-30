@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>構造コンサルティング - 創造のプロセスを実現する</title>
+    <title>ようこそ、夢が叶う場所へ！</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #FFFFFF;
-            --text-color: #333;
-            --primary-accent: #0A2463; /* Deep Blue */
-            --secondary-accent: #E0E0E0; /* Light Gray */
-            --font-family-sans: 'Roboto', 'Noto Sans JP', sans-serif;
+            --bg-gradient-start: #1a237e; /* Deep Indigo */
+            --bg-gradient-end: #283593;   /* Indigo */
+            --text-color: #FFFDE7;       /* Light Cream */
+            --header-font: 'Lobster', cursive;
+            --body-font: 'Nunito', sans-serif;
+            --accent-gold: #FFD700;      /* Gold */
+            --button-bg: #E91E63;       /* Vibrant Pink */
+            --button-hover-bg: #C2185B;  /* Darker Pink */
         }
 
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
             color: var(--text-color);
-            font-family: var(--font-family-sans);
-            font-weight: 300;
+            font-family: var(--body-font);
             margin: 0;
             padding: 0;
-            line-height: 1.9;
+            line-height: 1.8;
+            overflow-x: hidden; /* Prevent horizontal scroll from sparkles */
         }
 
         .container {
@@ -32,321 +35,203 @@
             padding: 0 2rem;
         }
 
-        /* --- Global Styles --- */
         h1, h2, h3 {
-            font-weight: 700;
-            color: var(--primary-accent);
+            font-family: var(--header-font);
+            color: var(--accent-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             letter-spacing: 0.05em;
         }
 
         section {
-            padding: 6rem 0;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        /* --- Sparkle Effect --- */
+        .sparkle-container {
             position: relative;
         }
-        
-        section:not(.hero)::before {
-            content: '';
+
+        @keyframes sparkle-anim {
+            0% { transform: scale(0); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(0); opacity: 0.5; }
+        }
+
+        .sparkle {
             position: absolute;
-            top: 0;
-            left: 2rem;
-            right: 2rem;
-            height: 1px;
-            background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
-            opacity: 0.5;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: sparkle-anim 1.5s infinite;
+            box-shadow: 0 0 10px var(--accent-gold), 0 0 20px #fff;
         }
 
         /* --- Hero Section --- */
         .hero {
-            height: 70vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1519781542379-e51328c3b12d?q=80&w=1974&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
 
-        .hero__content {
-             padding: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
+        .hero__content h1 {
+            font-size: 3.5rem;
             margin: 0;
-            font-weight: 700;
-            line-height: 1.6;
         }
 
-        .hero p {
-            font-size: 1rem;
+        .hero__content p {
+            font-size: 1.2rem;
             margin-top: 1.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            color: #555;
-            font-weight: 400;
         }
 
         /* --- Section Header --- */
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 1rem;
             display: inline-block;
-            border-bottom: 2px solid var(--primary-accent);
-            padding-bottom: 0.5rem;
         }
 
-        /* --- About Section & Diagram --- */
-        #about p {
-            max-width: 750px;
-            margin: 0 auto 1.5rem auto;
-            text-align: center;
-        }
-        
-        .structure-diagram {
-            margin-top: 5rem;
-            text-align: center;
-        }
-        
-        .tension-box {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 2rem 0;
-        }
-        
-        .reality-box, .vision-box {
-            width: 150px;
-            padding: 1rem;
-            border: 1px solid var(--text-color);
-            text-align: center;
-        }
-
-        .tension-arrow {
-            flex-grow: 1;
-            position: relative;
-            height: 2px;
-            background: var(--primary-accent);
-            margin: 0 1rem;
-        }
-        .tension-arrow::after {
-            content: '';
-            position: absolute;
-            right: -1px;
-            top: -5px;
-            width: 0;
-            height: 0;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            border-left: 12px solid var(--primary-accent);
-        }
-        
-        .tension-label {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-color);
-            padding: 0 0.5rem;
-            color: var(--primary-accent);
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .oscillation-path {
-            margin: 1.5rem auto 0 auto;
-            width: 80%;
-            height: 40px;
-            border: 1px dashed var(--secondary-accent);
-            border-top: none;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-        .oscillation-path span {
-            font-size: 0.9rem;
-            color: #777;
-            background: var(--bg-color);
-            padding: 0 0.5rem;
-        }
-
-        /* --- Service Section --- */
-        .service-grid {
+        /* --- Attractions Section --- */
+        .attraction-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
-        .service-item {
-            padding: 2rem;
-            border: 1px solid var(--secondary-accent);
-            background: #fdfdfd;
+        .attraction-item {
+            padding: 2.5rem 2rem;
+            border: 2px dashed var(--accent-gold);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
         }
-        .service-item h3 {
+        .attraction-item h3 {
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 2rem;
         }
-
-        /* --- Target Section --- */
-        #target {
-            background-color: #f9f9fa;
-        }
-        .target-list {
-            list-style: none;
-            padding: 0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .target-list li {
-            font-size: 1.1rem;
-            padding: 1rem;
-            text-align: center;
-            font-weight: 400;
-        }
-        .target-list li:not(:last-child) {
-            border-bottom: 1px solid var(--secondary-accent);
-        }
-
 
         /* --- CTA Section --- */
         #cta {
-            background-color: var(--primary-accent);
+            background-color: rgba(0, 0, 0, 0.2);
             padding: 4rem 0;
-        }
-        .cta-content {
-            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
         }
         .cta-content h2 {
-            color: var(--bg-color);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             margin: 0 0 2rem 0;
             border: none;
         }
         .cta-button {
             display: inline-block;
-            background: var(--bg-color);
-            color: var(--primary-accent);
-            padding: 1rem 3rem;
+            background: var(--button-bg);
+            color: white;
+            padding: 1.2rem 3.5rem;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 4px;
+            font-size: 1.1rem;
+            border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            border: 3px solid white;
         }
         .cta-button:hover {
-            background: #f0f0f0;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: var(--button-hover-bg);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
         
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 2rem 0;
-            font-size: 0.8rem;
-            color: #888;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
         }
         
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
+            .hero__content h1 {
+                font-size: 2.5rem;
             }
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-            .tension-box {
-                flex-direction: column;
-            }
-            .tension-arrow {
-                width: 2px;
-                height: 50px;
-                margin: 1rem 0;
-                transform: rotate(90deg);
+            .section-header h2 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
+    <header class="hero sparkle-container">
         <div class="hero__content">
-            <h1>問題解決ではなく、創造を。<br>最小抵抗の経路を再設計する。</h1>
-            <p>現在の現実とビジョンの間に「構造的緊張」を生み出し、<br>望む結果を創り出すための構造コンサルティング。</p>
+            <h1>魔法の創造の旅へ出かけよう</h1>
+            <p>あなたのビジョンに命を吹き込む、不思議な体験がここから始まります。</p>
         </div>
     </header>
 
     <main>
         <div class="container">
 
-            <section id="about">
+            <section id="welcome-gate">
                 <div class="section-header">
-                    <h2>What is Structural Thinking?</h2>
+                    <h2>ようこそ、夢の入り口へ</h2>
                 </div>
-                <p>多くの個人や組織は「問題解決」モードで動きます。しかし、問題に焦点を当てると、その構造の力によって元の状態に引き戻される「揺り戻し（Oscillation）」が発生しがちです。真の変化は、問題を取り除くことではなく、望む結果を「創造」することから始まります。</p>
-                
-                <div class="structure-diagram">
-                    <p>私たちは「現在の現実」を正確に認識し、「ビジョン」を明確にすることで、両者の間に「構造的緊張」という名のエネルギーを生み出します。このエネルギーが、ビジョンに向かうための最も自然な「最小抵抗の経路」を明らかにするのです。</p>
-                    <div class="tension-box">
-                        <div class="reality-box">現在の現実</div>
-                        <div class="tension-arrow">
-                            <span class="tension-label">構造的緊張</span>
-                        </div>
-                        <div class="vision-box">ビジョン</div>
-                    </div>
-                    <div class="oscillation-path">
-                        <span>「問題解決」の揺り戻し</span>
-                    </div>
-                </div>
+                <p>ここは、ただのウェブサイトではありません。あなたの想像力が主役になる、魔法の王国です。<br>心の中に眠る輝くビジョンを、私たちと一緒に現実のものにしましょう。</p>
             </section>
 
-            <section id="services">
+            <section id="attractions">
                 <div class="section-header">
-                    <h2>Our Services</h2>
+                    <h2>魔法のアトラクション</h2>
                 </div>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>個人向け構造コンサルティング</h3>
-                        <p>キャリア、人間関係、自己実現など、あなたの人生における真のビジョンを明確にし、それを実現するための構造を設計します。1対1のセッションを通じて、創造のプロセスを体得します。</p>
+                <div class="attraction-grid">
+                    <div class="attraction-item">
+                        <h3>夢の設計図</h3>
+                        <p>あなたの頭の中にある漠然としたアイデアを、誰もが魅了されるような具体的な計画に変える魔法です。キャリア、アート、プロジェクト、どんな夢でもお任せください。</p>
                     </div>
-                    <div class="service-item">
-                        <h3>組織の構造設計</h3>
-                        <p>チームや組織が抱える根源的な構造を分析し、ビジョン達成を妨げる要因を特定します。持続的な成果を生み出すための、自律的な組織構造への変革をサポートします。</p>
+                    <div class="attraction-item">
+                        <h3>アイデアの魔法</h3>
+                        <p>チームや組織全体が同じ夢に向かって進むための、絆と情熱の魔法をかけます。停滞した空気を打ち破り、奇跡のようなチームワークを生み出しましょう。</p>
                     </div>
                 </div>
-            </section>
-
-            <section id="target">
-                 <div class="section-header">
-                    <h2>Target Audience</h2>
-                </div>
-                <ul class="target-list">
-                    <li>✓ 同じ問題を何度も繰り返していると感じるリーダー</li>
-                    <li>✓ 目標達成の過程でエネルギーを消耗している方</li>
-                    <li>✓ その場しのぎの対策ではなく、根本的な変化を望む方</li>
-                    <li>✓ 真に望む未来を自らの手で構築したいと願う実践者</li>
-                </ul>
             </section>
         </div>
 
         <section id="cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2>あなたの「最小抵抗の経路」を見つけませんか？</h2>
-                    <a href="#contact" class="cta-button">構造を再設計する相談を予約する</a>
+                    <h2>あなたの冒険を始めませんか？</h2>
+                    <a href="#contact" class="cta-button">魔法のチケットを予約する</a>
                 </div>
             </div>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 Structural Consulting. All rights reserved.</p>
+        <p>&copy; 2025 The Magic of Creation. All Dreams Reserved.</p>
     </footer>
+
+    <script>
+        // Simple sparkle effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const sparkleContainer = document.querySelector('.sparkle-container');
+            if (sparkleContainer) {
+                for (let i = 0; i < 20; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.top = `${Math.random() * 100}%`;
+                    sparkle.style.left = `${Math.random() * 100}%`;
+                    sparkle.style.animationDelay = `${Math.random() * 1.5}s`;
+                    sparkleContainer.appendChild(sparkle);
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
